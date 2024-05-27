@@ -7,5 +7,6 @@ router.get('/:id', prodServController.getOneEntrega);
 router.post('/', prodServController.postEntrega);
 router.put('/:id', prodServController.updateEntrega);
 router.delete('/:id', prodServController.deleteEntrega);
+router.post('/envio/:id', prodServController.newEnvio);
 
 export default router;

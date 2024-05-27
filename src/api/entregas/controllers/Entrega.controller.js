@@ -79,3 +79,19 @@ export const deleteEntrega = async (req, res, next) => {
     next(error);
   }
 };
+
+// Controlador para manejar la solicitud PATCH para agregar envios a una entrega
+export const newEnvio = async (req, res, next) => {
+  try {
+    const { id } = req.params; // Obtiene el ID de la entrega a la que se agregará el envío
+    const envioData = req.body; // Obtiene los datos del envío a agregar
+    const updatedEntrega = await EntregaServices.newEnvio(id, envioData); // Llama al servicio para agregar el envío a la entrega
+    if (!updatedEntrega) {
+      throw boom.notFound('No se encontró la entrega a la que se desea agregar el envío.');
+    } else {
+      res.json(updatedEntrega); // Responde con los datos actualizados de la entrega
+    }
+  } catch (error) {
+    next(error);
+  }
+};
