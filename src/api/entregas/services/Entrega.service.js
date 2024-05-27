@@ -63,3 +63,13 @@ export const deleteEntrega = async (IdEntregaOK) => {
     throw error;
   }
 };
+
+export const newEnvio = async (IdEntregaOK, envio) => {
+  try {
+    // Busca la entrega por su ID y actualiza el campo 'envios' agregando un nuevo envío
+    const updatedEntregas = await Entregas.findOneAndUpdate({ IdEntregaOK }, { $push: { envios: envio } }, { new: true });
+    return updatedEntregas;
+  } catch (error) {
+    throw error;
+  }
+}
