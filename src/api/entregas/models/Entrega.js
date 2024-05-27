@@ -23,8 +23,9 @@ const estatusSchema = new mongoose.Schema({
   Observacion: { type: String },
 });
 
+//entrega
 const envioSchema = new mongoose.Schema({
-  IdDomicilioOK: { type: String },
+  IdEntregaOK: { type: String },
   IdPaqueteriaOK: { type: String },
   IdTipoMetodoEnvio: { type: String },
   CostoEnvio: { type: Number },
@@ -44,6 +45,7 @@ const infoSchema = new mongoose.Schema({
   Alias: { type: String },
 });
 
+//orden
 const entregaSchema = new mongoose.Schema({
   IdInstitutoOK: { type: String },
   IdNegocioOK: { type: String },
