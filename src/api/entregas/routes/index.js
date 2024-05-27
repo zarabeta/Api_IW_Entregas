@@ -5,13 +5,10 @@ import config from '../../../config/config';
 import prodServRoutes from './Entrega.routes';
 //import ordersRoutes from './orders.routes';
 const routerAPI = (app) => {
-  const router = Router();
-  const api = config.API_URL;
-  app.use(api, router);
   // Routes
-  router.use('/entregas', prodServRoutes);
+  app.use('/entregas', prodServRoutes);
   //router.use('/orders', ordersRoutes);
   // Return Router
-  return router;
+  return app;
 };
 module.exports = routerAPI;
