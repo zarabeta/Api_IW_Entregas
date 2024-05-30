@@ -13,20 +13,22 @@ export const getAllProductos = async () => {
 };
 
 //Obtener productos por ID
-export const getOneProducto = async (id, keyType) => {
+export const getOneProducto = async (id, idpaq, keyType) => {
   let ProductosOne;
  
   try {
     if (keyType === 'OK') {
       ProductosOne = await Productos.findOne({
-        IdProductoOK: id,
+        IdEntregaOK: id,
+        IdProductoOK: idpaq
       });
     } else if (keyType === 'BK') {
-        ProdServOne = await ProdServ.findOne({
-          IdProductoBK: id,
+      ProductosOne = await ProdServ.findOne({
+        IdEntregaBK: id,
+        IdProductoBK: idpaq
       });
     }
-    return(ProductosOne);
+    return ProductosOne;
   } catch (error) {
     throw boom.internal(error);
   }

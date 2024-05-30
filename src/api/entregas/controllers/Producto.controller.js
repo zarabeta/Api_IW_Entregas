@@ -19,19 +19,21 @@ export const getAllProductos = async (req, res, next) => {
 //Obtener solo una producto.
 export const getOneProducto = async (req, res, next) => {
   try {
-    //Obtener parametro id mediante la desestructuracion de objetos
-  const { id } = req.params;
-  const keyType = req.query.keyType || 'OK';
-  const ProductosOne = await ProductoServices.getOneProducto(id, keyType);
-  if (!ProductosOne) {
-    throw boom.notFound('No se encontraron productos registradas.');
-  } else if (ProductosOne) {
+    const { id, idprod } = req.params;
+    const keyType = req.query.keyType || 'OK';
+
+    const ProductosOne = await ProductoServices.getOneProducto(id, idprod, keyType);
+
+    if (!ProductosOne) {
+      throw boom.notFound('No se encontraron productos registrados.');
+    }
+    
     res.status(200).json(ProductosOne);
+  } catch (error) {
+    next(error);
   }
-}catch(error){
-  next(error);
 }
-};
+
 
 //API POST (ADD) producto.
 export const postProducto = async (req, res, next) => {
