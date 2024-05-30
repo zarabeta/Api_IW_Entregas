@@ -76,8 +76,8 @@ export const deleteEntrega = async (req, res, next) => {
       res.json(deletedEntrega); // Responde con los datos de la entrega eliminada
     }
   } catch (error) {
-    next(error);
-  }
+    next(error); 
+  } 
 };
 
 // Controlador para manejar la solicitud PATCH para agregar envios a una entrega

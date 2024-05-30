@@ -64,12 +64,23 @@ export const deleteProducto = async (IdProductoOK) => {
   }
 };
 
-export const newProducto = async (IdProductoOK, prods) => {
+export const newProduct = async (IdProductoOK, prods) => {
   try {
     // Busca la producto por su ID y actualiza el campo 'envios' agregando un nuevo envío
-    const updatedProductos = await Productos.findOneAndUpdate({ IdProductoOK }, { $push: { productos: prods } }, { new: true });
+    const updatedProductos = await Productos.findOneAndUpdate(
+      { 
+        IdEntregaOK: IdProductoOK, 
+        "envios._id": prods.envioId // Suponiendo que prods contiene el ID del envío
+      }, 
+      { 
+        $push: { "envios.$.productos": prods } 
+      }, 
+      { 
+        new: true 
+      }
+    );
     return updatedProductos;
   } catch (error) {
     throw error;
   }
-}
+};

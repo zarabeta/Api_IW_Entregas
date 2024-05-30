@@ -79,15 +79,15 @@ export const deleteProducto = async (req, res, next) => {
     next(error); 
   }
 };
-
-// Controlador para manejar la solicitud PATCH para agregar envios a una producto
-export const newProducto = async (req, res, next) => {
+ 
+// Controlador para manejar la solicitud PATCH para agregar productos a una producto
+export const newProduct = async (req, res, next) => {
   try {
     const { id } = req.params; /// Obtiene los datos del envío a agregar
-    const envioData = req.body; // Obtiene los datos del envío a agregar
-    const updatedProducto = await EntregaServices.newEnvio(id, envioData); // Llama al servicio para agregar el envío a la producto
+    const productoData = req.body; // Obtiene los datos del envío a agregar
+    const updatedProducto = await ProductoServices.newProduct(id, productoData); // Llama al servicio para agregar el envío a la producto
     if (!updatedProducto) {
-      throw boom.notFound('No se encontró la producto a la que se desea agregar el envío.');
+      throw boom.notFound('No se encontró el envio a la que se desea agregar el producto.');
     } else {
       res.json(updatedProducto); // Responde con los datos actualizados de la producto
     }

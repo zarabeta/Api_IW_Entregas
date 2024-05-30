@@ -9,8 +9,11 @@ const ActRastreoSchema = new mongoose.Schema({
   UsuarioReg: { type: String },
 });
 
+
+//productos
 const productSchema = new mongoose.Schema({
   IdProdServOK: { type: String },
+  IdPresentaOK:{type: String},
   DesProdServ: { type: String },
   DesPresenta: { type: String },
   CantidadPed: { type: Number },
