@@ -2,11 +2,12 @@ import { Router } from 'express';
 import * as prodServController from '../controllers/Entrega.controller';
 
 const router = Router();
-router.get('/', prodServController.getAllEntregas);
-router.get('/:id', prodServController.getOneEntrega);
-router.post('/', prodServController.postEntrega);
-router.put('/:id', prodServController.updateEntrega);
-router.delete('/:id', prodServController.deleteEntrega);
-router.post('/envio/:id', prodServController.newEnvio);
+router.get('/envios', prodServController.getAllEntregas);
+router.get('/envios/:id', prodServController.getOneEntrega);
+router.post('/envios/', prodServController.postEntrega);
+router.put('/envios/:id', prodServController.updateEntrega);
+router.delete('/envios/:id', prodServController.deleteEntrega);
+router.post('/envios/envio/:id', prodServController.newEnvio);
+
 
 export default router;

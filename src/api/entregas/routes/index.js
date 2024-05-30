@@ -2,12 +2,12 @@
 import { Router } from 'express';
 import config from '../../../config/config';
 // Import Routes
-import prodServRoutes from './Entrega.routes';
-//import ordersRoutes from './orders.routes';
+import prodServRoutes1 from './Entrega.routes';
+import prodServRoutes2 from './Productos.routes';
 const routerAPI = (app) => {
   // Routes
-  app.use('/entregas', prodServRoutes);
-  //router.use('/orders', ordersRoutes);
+  app.use('/entregas', prodServRoutes1);
+  app.use('/entregas', prodServRoutes2);
   // Return Router
   return app;
 };

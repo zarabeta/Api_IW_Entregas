@@ -14,7 +14,7 @@ export const getAllEntregas = async (req, res, next) => {
     } catch(error) {
       next(error);
     }
-  };
+  }; 
 
 //Obtener solo una entrega.
 export const getOneEntrega = async (req, res, next) => {

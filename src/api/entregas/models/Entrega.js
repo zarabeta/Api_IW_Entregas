@@ -25,7 +25,7 @@ const estatusSchema = new mongoose.Schema({
 
 //entrega
 const envioSchema = new mongoose.Schema({
-  IdEntregaOK: { type: String },
+  IdDomicilioOK: { type: String },
   IdPaqueteriaOK: { type: String },
   IdTipoMetodoEnvio: { type: String },
   CostoEnvio: { type: Number },

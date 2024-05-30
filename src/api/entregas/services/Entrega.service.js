@@ -3,7 +3,7 @@ import Entregas from '../models/Entrega';
 import boom from '@hapi/boom';
 
 //Obtener lista de entregas
-export const getAllEntregas = async () => {
+export const getAllEntregas = async () => { 
   try {
         const EntregasAll = await Entregas.find();
         return(EntregasAll);
